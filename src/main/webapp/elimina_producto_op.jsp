@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ELIMINA</title>
+        <title>Elimina Productos</title>
     </head>
       
-    <body>   <h1>EMPRESA DE CAFE</h1>
+    <body>  
              <%
                 Class.forName("com.mysql.jdbc.Driver");
                 Connection conexion = null;            
@@ -28,7 +28,7 @@
                     eliminaProd.execute();       
                     /*String vProd = request.getParameter("id_tbprod");
                     if(vProd ){*/
-                    out.print("ELIMINADO");
+                    out.print("El producto se elimino correctamente");
                
                     
                    

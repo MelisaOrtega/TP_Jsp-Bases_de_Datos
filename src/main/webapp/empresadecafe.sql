@@ -67,11 +67,11 @@ UPDATE tb_prod_sucur SET costo= ? WHERE id_prod= ?;
 /***************************Carga elimina stock*****************************/
 
 
-DELETE FROM tb_prod_sucur WHERE id_tbprod=? AND id_tbsucur=? AND stock=?;
+DELETE FROM tb_prod_sucur WHERE id_tbprod=? AND id_tbsucur=?;
 
 /**********************************************************************/
  SET @id_prod= LAST_INSERT_ID();
 
 INSERT INTO tb_prod_sucur ( id_tbsucur, id_tbprod) VALUES (2,@id_prod);
-INSERT INTO tb_prod_sucur ( id_tbsucur, id_tbprod,stock) VALUES (2,@id_prod,100);
+INSERT INTO tb_prod_sucur ( id_tbsucur, id_tbprod,stock) VALUES (2,@id_prod,1);
 

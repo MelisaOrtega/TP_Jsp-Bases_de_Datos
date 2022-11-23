@@ -1,14 +1,14 @@
 <%-- 
     Document   : elimina_producto.jsp
     Created on : 18 nov 2022, 0:22:53
-    Author     : usuario
+    Author     : Melisa
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ELIMINA</title>
+        <title>Elimina Productos</title>
     </head>
          
     <body>

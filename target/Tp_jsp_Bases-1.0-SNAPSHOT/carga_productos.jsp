@@ -11,7 +11,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>CARGA</title>
+        <title>Carga Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -35,6 +35,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
             NOMBRE PRODUCTO:<input type="text" name="prod"><br>
             DESCRIPCION: <input type="text" name="desc"><br>
             COSTO: <input type="text" name="costo"><br>
+            STOCK: <input type="text" name="stock"><br>     
             <input type="hidden" name="id" value="<%out.print(request.getParameter("id"));%>">
             <input type="submit" value="CARGAR">
         </form>

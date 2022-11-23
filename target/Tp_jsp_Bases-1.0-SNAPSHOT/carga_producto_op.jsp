@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Carga Productos</title>
     </head>
      
     <body> 
@@ -18,7 +18,7 @@
                 Connection conexion = null;            
                 String qProd = "INSERT INTO tb_prod(nom_prod, desc_prod, costo) VALUES (?,?,?)";
                 String qSet = "SET @id_prod = LAST_INSERT_ID()";
-                String qRel = "INSERT INTO tb_prod_sucur(id_tbprod, id_tbsucur) VALUES (@id_prod,?)";
+                String qRel = "INSERT INTO tb_prod_sucur(id_tbprod, id_tbsucur, stock) VALUES (@id_prod,?,?)";
            
                 PreparedStatement consultaProd = null;
                 PreparedStatement consultaRel = null;
@@ -27,6 +27,7 @@
                 String vDesc = request.getParameter("desc");
                 String vProd = request.getParameter("prod");
                 String vCosto = request.getParameter("costo");
+                String vStock = request.getParameter("stock");
                
                 try {
                     conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/empresadecafe", "root", "");
@@ -37,15 +38,16 @@
                     consultaProd.setString(3, request.getParameter("costo"));
                     /*preparar consulta set*/
                     consultaSet = conexion.prepareStatement(qSet);
-                    /*pREPARA RELACION*/
+                    /*prepara relacion*/
                     consultaRel = conexion.prepareStatement(qRel);
                     consultaRel.setString(1, request.getParameter("id"));
+                    consultaRel.setInt(2,Integer.parseInt(request.getParameter("stock")));
 
                     consultaProd.execute();
                     consultaSet.execute();
                     consultaRel.execute();
                     
-                    out.print("CARGADO");
+                    out.print("Producto cargado correctamente");
                 } catch (Exception e) {
                     e.printStackTrace();
                     out.println(consultaProd + "</br>");
@@ -53,7 +55,6 @@
                   
                 } finally {
                     try {
-
                         consultaRel.close();
                         consultaProd.close();
                         conexion.close();

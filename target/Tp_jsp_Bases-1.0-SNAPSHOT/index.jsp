@@ -1,4 +1,4 @@
- <%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Statement"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -25,11 +25,13 @@
                      
                    while(listaSucur.next()){
                    %>
-                   <p>sucursal: <%out.print(listaSucur.getString("nom_sucur"));%></p>
+                   <h1><%out.print(listaSucur.getString("nom_sucur"));%></h1>
+                    <p><%out.print(listaSucur.getString("direc"));%></p>
+                   
                    <ul>
                        
                        <li><a href= "carga_productos.jsp?id=<%out.print(listaSucur.getString("id_sucur"));%>">carga</a></li>
-                        <li><a href= "muestra_productos.jsp?id=<%out.print(listaSucur.getString("id_sucur"));%>">muestra</a></li>
+                        <li><a href= "muestra_productos.jsp?id=<%out.print(listaSucur.getString("id_sucur"));%>&sucur=<%out.print(listaSucur.getString("nom_sucur"));%></br>&direc=<%out.print(listaSucur.getString("direc"));%>">muestra</a></li>
                          <li><a href= "elimina_producto.jsp?id=<%out.print(listaSucur.getString("id_sucur"));%>">elimina</a></li> 
                    </ul>
                  
